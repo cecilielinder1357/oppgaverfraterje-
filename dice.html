@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling dices</title>
+    <style>
+        div {
+            font-size: 500%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--Definerer ID'en til et element-->
+    <div id="app"></div>
+
+    <!--Lag en html-fil som trekker et tilfeldig tall med koden over 
+    + viser riktig terning på skjermen-->
+
+    <script>
+
+         // Setter en variabel som heter 'Dice' (som brukes istedet for
+        // document.getElementById('app').innerHTML).
+        let Dice;
+
+        function RollDice() {
+            // Velger et random tall mellom 1 og 6.
+            let diceRoll = Math.ceil(Math.random() * 6)
+
+            // Hvis det randomme tallet er 1, vis terning med 1. 
+            // document.getElementById(id). innerHTML refererer 
+            // innholdet av elementet, altså det som er mellom taggene. 
+            if (diceRoll === 1) {
+                Dice = '⚀';
+            }
+            // Hvis det randomme tallet er 2, vis terning med 2. 
+            if (diceRoll === 2) {
+                Dice = '⚁';
+            }
+            // Hvis det randomme tallet er 3, vis terning med 3. 
+            if (diceRoll === 3) {
+                Dice = '⚂';
+            }
+            // Hvis det randomme tallet er 4, vis terning med 4. 
+            if (diceRoll === 4) {
+                Dice = '⚃';
+            }
+            // Hvis det randomme tallet er 5, vis terning med 5. 
+            if (diceRoll === 5) {
+                Dice = '⚄';
+            }
+            // Hvis det randomme tallet er 6, vis terning med 6. 
+            if (diceRoll === 6) {
+                Dice = '⚅';
+            }
+            document.getElementById('app').innerHTML = Dice;
+        }
+
+        // Funksjonen bli kalt på for å vise terningene, altså elementet
+        // av innholdet til ...innerHTML. 
+        RollDice()
+
+    </script>
+
+</body>
+
+</html>
