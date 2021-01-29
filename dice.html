@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+ <!--https://stackoverflow.com/questions/20701586/dice-roll-in-javascript-->
     <!--Definerer ID'en til et element-->
     <div id="app"></div>
 
@@ -24,44 +24,49 @@
 
          // Setter en variabel som heter 'Dice' (som brukes istedet for
         // document.getElementById('app').innerHTML).
-        let Dice;
+        let Dice1 = document.getElementById('dice1');
+        let Dice2 = document.getElementById('dice2');
 
-        function RollDice() {
+        function RollDice1() {
             // Velger et random tall mellom 1 og 6.
-            let diceRoll = Math.ceil(Math.random() * 6)
+            let diceRoll1 = Math.ceil(Math.random() * 6)
+            let diceRoll2 = Math.ceil(Math.random() * 6)
 
             // Hvis det randomme tallet er 1, vis terning med 1. 
             // document.getElementById(id). innerHTML refererer 
             // innholdet av elementet, altså det som er mellom taggene. 
-            if (diceRoll === 1) {
+            if (diceRoll1 === 1) {
                 Dice = '⚀';
             }
             // Hvis det randomme tallet er 2, vis terning med 2. 
-            if (diceRoll === 2) {
+            if (diceRoll1 === 2) {
                 Dice = '⚁';
             }
             // Hvis det randomme tallet er 3, vis terning med 3. 
-            if (diceRoll === 3) {
+            if (diceRoll1 === 3) {
                 Dice = '⚂';
             }
             // Hvis det randomme tallet er 4, vis terning med 4. 
-            if (diceRoll === 4) {
+            if (diceRoll1 === 4) {
                 Dice = '⚃';
             }
             // Hvis det randomme tallet er 5, vis terning med 5. 
-            if (diceRoll === 5) {
+            if (diceRoll1 === 5) {
                 Dice = '⚄';
             }
             // Hvis det randomme tallet er 6, vis terning med 6. 
-            if (diceRoll === 6) {
+            if (diceRoll1 === 6) {
                 Dice = '⚅';
             }
-            document.getElementById('app').innerHTML = Dice;
+            document.getElementById('app').innerHTML = Dice1;
+            
         }
 
         // Funksjonen bli kalt på for å vise terningene, altså elementet
         // av innholdet til ...innerHTML. 
-        RollDice()
+        RollDice1()
+        RollDice2()
+        
 
     </script>
 
