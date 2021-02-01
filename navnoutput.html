@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navn fra knapp</title>
+</head>
+
+<!--Litt input: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_text_name-->
+
+<body>
+
+    <p id="printName"></p>
+
+    Name: <br /> <input type="text" id="userName">
+
+    <button onclick="display()">Hei</button>
+    <button onclick="display1()">Hallo</button>
+
+    <script>
+
+        // Funksjon for å få ut "Hei" + navn.
+        function display() {
+            //Assigning the variable to the user input.
+            var userName = document.getElementById("userName").value;
+            // To print the input.
+            document.getElementById("printName").innerHTML = "Hei " + userName;
+        }
+
+        // Funksjon for å få ut "Hallo" + navn.
+        function display1() {
+            // Assigning the variable to the user input.
+            var userName = document.getElementById("userName").value;
+            // To print the output.
+            document.getElementById("printName").innerHTML = "Hallo " + userName;
+        }
+
+    </script>
+
+</body>
+
+</html>
