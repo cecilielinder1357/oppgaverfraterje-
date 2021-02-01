@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navn fra knapp</title>
+</head>
+
+<!--Litt input: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_text_name-->
+
+<body>
+
+    <p id="printName"></p>
+
+    Navn <br /> <input type="text" id="userName">
+
+    <button onclick="display('Hei ')">Hei</button>
+    <button onclick="display('Hallo ')">Hallo</button>
+
+    <script>
+
+        // Her brukes kun en funskjon som sender med kun 1 parameter.
+        function display(heiellerhallo) {
+            //Assigning the variable to the user input.
+            var userName = document.getElementById("userName").value;
+            // To print the input.
+            document.getElementById("printName").innerHTML = heiellerhallo + userName;
+        }
+
+    </script>
+
+</body>
+
+</html>
