@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Red, green and blue sliders.</title>
+
+    <style>
+
+      div {
+        margin: 10px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <p>
+      Lag tre slidere som velger et tall mellom 0 og 255 <br />
+      for rødt, grønt og blått. Og at når man drar i disse, <br />
+      skal bakgrunnsfargen på siden settes til valgte farge. <br />
+      <br />
+    </p>
+
+    <div id="app"></div>
+
+    <script>
+      // Model
+      let red = "255";
+      let green = "255";
+      let blue = "255";
+      /* et sted å ha verdi inni. ^
+        Disse verdiene skal bli brukt til å forandre rbg verdiene.
+        De har 255 inni, slik at slideren starter på verdi 255.
+        ${red} blir brukt til å sende verdiene innenfor let red = '255' til ${red}
+
+        Lage en funksjon + onchange på input for å hente verdiene fra input slider. 
+        (sjekk linje 65-80 ish) 
+        */
+
+      // View
+      showColorSlider();
+      function showColorSlider() {
+        //Bruker rgb isteden for red, slik at fargen kan forandres med slider
+        document.getElementById("app").innerHTML = `
+                    <div id="redSlider" style="background-color: rgb(${red}, 0, 0)";>
+                        <p> Drag the slider to display different variations of red. </p>
+                        <input type="range" min="0" max="255" step="1" value="${red}" onchange="changeColorRed(this)"> 
+                    </div>                   
+                    
+                    <div id="greenSlider" style="background-color:rgb(0, ${green}, 0)";>
+                        <p> Drag the slider to display different variations of green. </p>                 
+                        <input type="range" min="0" max="255" step="1" value="${green}" onchange="changeColorGreen(this)">
+                    </div>
+
+                    <div id="blueSlider" style="background-color:rgb(0, 0, ${blue})";>
+                        <p> Drag the slider to display different variations of blue. </p> 
+                        <input type="range" min="0" max="255" step="1" value="${blue}" onchange="changeColorBlue(this)"> 
+                    </div>
+                `;
+      }
+
+      // Controller
+      function changeColorRed(rødVerdi) {
+        red = rødVerdi.value; //(rødVerdi) henter verdi fra slider og putter den på variable red
+        showColorSlider(); //må ha denne for å se synlige forandringer funksjoner har gjort.
+      }
+
+      function changeColorGreen(grønnVerdi) {
+        green = grønnVerdi.value; //(grønnVerdi) henter verdi fra slider og putter den på variable grønn
+        showColorSlider();
+      }
+
+      function changeColorBlue(blåVerdi) {
+        blue = blåVerdi.value; //(blåVerdi) henter verdi fra slider og putter den på variable blå
+        showColorSlider();
+      }
+    </script>
+  </body>
+</html>
