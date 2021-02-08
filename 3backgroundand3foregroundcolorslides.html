@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 sliders for front- and backgroundcolor</title>
+
+</head>
+
+<body>
+
+    <h2>3 sliders for front- and background color</h2>
+
+    <input id="red" type="range" name="redSlider" min="0" max="255" step="1" color="red"
+        oninput="showBackgroundColor(this.value)" />Red background color <br/>
+    <input id="blue" type="range" name="blueSlider" min="0" max="255" step="1" color="blue"
+        oninput="showBackgroundColor(this.value)" />Blue background color <br/>
+    <input id="green" type="range" name="greenSlider" min="0" max="255" step="1" color="green"
+        oninput="showBackgroundColor(this.value)" />Green background color <br/> <br/> <br/>
+
+    <input id="red1" type="range" name="redSliderColor" min="0" max="255" step="1" color="red"
+        oninput="showColor(this.value)" />Red color <br/>
+    <input id="blue1" type="range" name="blueSliderColor" min="0" max="255" step="1" color="blue"
+        oninput="showColor(this.value)" />Blue color <br/>
+    <input id="green1" type="range" name="greenSliderColor" min="0" max="255" step="1" color="green"
+        oninput="showColor(this.value)" />Green color <br/>
+
+    <script>
+        function showBackgroundColor() {
+            var red = parseInt(document.getElementById('red').value, 10),
+                green = parseInt(document.getElementById('green').value, 10),
+                blue = parseInt(document.getElementById('blue').value, 10);
+
+            document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        }
+
+        function showColor() {
+            var red = parseInt(document.getElementById('red1').value, 10),
+                green = parseInt(document.getElementById('green1').value, 10),
+                blue = parseInt(document.getElementById('blue1').value, 10);
+
+            document.body.style.color = `rgb(${red}, ${green}, ${blue})`
+        }
+
+    </script>
+
+</body>
+
+</html>
