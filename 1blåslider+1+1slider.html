@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue and red slider</title>
+
+    <style>
+        #background.change {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="red" type="range" name="redSlider" min="0" max="255" step="1" color="red"
+        oninput="showColor(this.value)" />Red
+    <input id="blue" type="range" name="blueSlider" min="0" max="255" step="1" color="blue"
+        oninput="showColor(this.value)" />Blue
+    <input id="green" type="range" name="greenSlider" min="0" max="255" step="1" color="green"
+        oninput="showColor(this.value)" />Green
+
+    <script>
+        function showColor() {
+            var red = parseInt(document.getElementById('red').value, 10),
+                green = parseInt(document.getElementById('green').value, 10),
+                blue = parseInt(document.getElementById('blue').value, 10);
+
+            document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        }
+
+    </script>
+
+</body>
+
+</html>
