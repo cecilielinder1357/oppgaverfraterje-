@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3 sliders and 2 buttons for front- and backgroundcolor</title>
+  </head>
+
+  <body>
+    <h2>3 sliders and 2 buttons for front- and background color</h2>
+
+    <p>
+      3 slidere endrer rød, grønn og blå på for og bakgrunnsfarge. <br />
+      2 knapper for for og bakgrunnsfarge, hvor sliderene skal kunne dras i <br />
+      og endre for eller bakgrunnsfarge alt ettersom hvilke knapp som er trykket på<br />
+    </p>
+
+    <div id="app"></div>
+
+    <script>
+
+    // Model
+    var colorChosen =
+    "Ingen farger valgt! <br/><br> Trykk på en av knappene for å justere bakgrunnsfarge eller forgrunnsfarge.";
+    /* Denne string teksten går inn til ${colorChosen} (linje 76) som er teksten som vises før knappen
+    er trykket på. Denne endres når knappen er trykket på (checkedButton funksjon) */
+
+    // Denne variablene er tom akkurat nå, men vil legge tekst inni ${selectedColorType} når knapp er valgt.
+    var selectedColorType = ""; 
+
+    //view, her er alt som skal tegnes opp og som må bli kalt hver gang det er en endring i controlleren.
+    view();
+    function view() {
+        let altAvView = `
+
+            <button 
+                id="backgroundColor" 
+                onclick="checkedButton(this)" 
+                >Background color</button>
+
+            <button 
+                id="foregroundColor" 
+                onclick="checkedButton(this)" 
+                >Foreground color</button><br /><br />
+
+            <input 
+                id="red" 
+                type="range" 
+                name="redSlider" 
+                min="0" 
+                max="255" 
+                step="1" 
+                color="red"
+                ${selectedColorType} />Red <br>
+
+            <input 
+                id="blue" 
+                type="range" 
+                name="blueSlider" 
+                min="0" 
+                max="255" 
+                step="1" 
+                color="blue"
+                ${selectedColorType} />Blue <br />
+
+            <input 
+                id="green" 
+                type="range" 
+                name="greenSlider" 
+                min="0" 
+                max="255" 
+                step="1" 
+                color="green"
+                ${selectedColorType} />Green <br /> <br /> <br />
+
+            <div> ${colorChosen}</div>
+            `;
+        document.getElementById("app").innerHTML = altAvView;
+    }
+
+    // Controller, gjør endringer i modellen.
+    function checkedButton(buttonClicked) {
+        // Henter HTML fra "checkedButton(this)"
+        // InnerText for å hente teksten innenfor HTML element.
+        let chosenButton = buttonClicked.innerText; 
+
+        // Skriver if setninger for å velge hva som skal skje når man velger for og background color.
+
+        // Først for background color.
+        if (chosenButton == "Background color") {
+            // Hvis chosenButton har = "Background color" som innerText, kommer denne teksten fram.
+            colorChosen = "You have chosen background color!";
+            // Legger til 'oninput="showBackgroundColor(this.value)"' inn i selectedColorType, 
+            // som videre legger denne verdien inni input HTML elementet.
+            selectedColorType = 'oninput="showBackgroundColor(this.value)"';
+          
+            // Oppdaterer HTML viewet siden det er gjort endringer, så teksten 
+            // "You have chosen background color!" kommer fram.
+            view(); 
+        }
+
+        // Så for foreground color.
+        if (chosenButton == "Foreground color") {
+            // Hvis chosenButton har = "Foreground color" som innerText, kommer denne teksten fram.
+            colorChosen = "You have chosen foreground color!";
+            // Legger til 'oninput="showBackgroundColor(this.value)"' inn i selectedColorType, 
+            // som videre legger denne verdien inni input HTML elementet.
+            selectedColorType = 'oninput="showForegroundColor(this.value)"';
+         
+            // Oppdaterer HTML viewet siden det er gjort endringer, så teksten 
+            // "You have chosen foreground color!" kommer fram.
+            view(); 
+        }
+    }
+
+    // Dette er funksjonene som aktiveres når du har trykket på en av knappene.
+    // Her får for og bakgrunnsfargene muligheten til å endre rødt, grønt og blått.
+    function showBackgroundColor() {
+        var red = parseInt(document.getElementById("red").value, 10),
+            green = parseInt(document.getElementById("green").value, 10),
+            blue = parseInt(document.getElementById("blue").value, 10);
+
+        document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+      }
+
+    function showForegroundColor() {
+        var red = parseInt(document.getElementById("red").value, 10),
+            green = parseInt(document.getElementById("green").value, 10),
+            blue = parseInt(document.getElementById("blue").value, 10);
+
+        document.body.style.color = `rgb(${red}, ${green}, ${blue})`;
+      }
+
+    </script>
+  </body>
+</html>
